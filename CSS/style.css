@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: rgb(152, 247, 246);
+    font-family: sans-serif;
+}
+
+#cabecalho{
+    width: 400px;
+    height: 200px;
+    background-image: url("../img/33.png");
+    background-size: cover;
+    margin: auto;
+    margin-top: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+}
+
+#refresh{
+    float: right;
+    margin-top: 10px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+#refresh:hover{
+    color: rgb(20, 225, 247);
+}
+
+#date{
+    padding: 10px;
+    padding-top: 150px;
+}
+
+#container{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    margin: auto;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: auto;
+}
+
+form{
+    padding: 2em;
+    display: flex;
+}
+
+#inputTask{
+  border: 1px solid #EEE;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  flex-grow: 1;
+  padding: 1em;
+  outline: none;
+}
+
+#inputTask:hover{
+    border: 1px solid #DDD;
+}
+
+#inputTask:active{
+    border: 1px solid #CCC;
+}
+
+#inputTask:focus{
+    border: 1px solid #3498DB;
+}
+
+
+#btn{
+    outline: none;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #3498DB;
+    color: white;
+    padding: 1em;
+    cursor: pointer;
+}
+
+#btn:hover{
+    background-color: blue;
+}
+
+.trash{
+    float: right;
+    margin-right: 12px;
+    cursor: pointer;
+    
+}
+
+.trash:hover{
+    color: red;
+}
+
+
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track{
+    border: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #566573;
+    border-radius: 10px;
+}
+
+#taskContainer{
+    flex-grow: 1;
+    padding: 2em;
+}
+
+#taskItem{
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.lineStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 30px;
+    border: 1px solid black;
+    width: 330px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+
+
+
+

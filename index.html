@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="img/icon2.png">
+</head>
+<body>
+    <header id="cabecalho">
+      <div id="clear">
+        <i class="fa fa-refresh" id="refresh"></i>
+      </div>
+      <h1 id="date"></h1>
+    </header>
+      <div id="container">
+        <form>
+        <input type="text" id="inputTask" placeholder="Add a task..." autocomplete="off">
+        <button type="submit" id="btn" onclick="addTask(this)">
+          <i class="fas fa-plus"></i>
+        </button>
+        </form>
+        <div id="taskConatiner">
+          <ul id="taskItem">
+
+          </ul>
+        </div>
+      </div>
+    <script src="scripit.js"></script>
+
+    <script src="https://kit.fontawesome.com/5bc262e851.js" crossorigin="anonymous"></script>
+</body>
+</html>
