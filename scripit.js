@@ -1,71 +1,50 @@
-let  inputTask = document.getElementById("inputTask")
-let addBtn = document.getElementById("btn")
-let listItem = document.getElementById("taskItem")
-let clearTasks = document.getElementById("refresh")
-let taskList = []
+let task = document.getElementById("task")
+let addTask = document.getElementById("addTask")
+let clear = document.getElementById("clear")
+let list = document.getElementById("list")
 
-
-
-function deleteItem(e){
-    let task = e.target.parentElement.previousElementSibling.innerHTML
-    let index = taskList.indexOf(task)
-    if(index !== -1){
-        taskList.splice(index,1)
-    }
-    populateList()
+onload = function(){
+    list.innerHTML = localStorage.getItem("key")
+    handleClick();
 }
 
-clearTasks.addEventListener("click", function(){
-    if(taskList.length >0){
-        taskList = []
-        localStorage.clear("taskList")
+addTask.addEventListener("click", ()=>{
+    if(task.value.length == 0){
+        alert("Add a task!")
     }
-    populateList()
+    else{
+        list.innerHTML += `<li> ${task.value} <button class="delete"><i class="fa-solid fa-trash-can"></i></i>
+        </button> </li>`
+
+        handleClick()
+    }
+    task.value = ""
 })
 
-function populateList(){
-    listItem.innerHTML = " "
-    taskList.forEach(function(item){
-        let line = document.createElement("li")
-        line.classList.add("lineStyle")
-        //add texto
-        let texto = document.createElement("p")
-        texto.innerHTML = item
-        line.appendChild(texto)
+function handleClick(){
+    localStorage.setItem("key", list.innerHTML);
 
-        //add delete btn
-        let trash = document.createElement("a")
-        trash.classList.add("trash")
-        trash.innerHTML = `<i class = "fa fa-trash"></i>`
-        line.appendChild(trash)
-        
-        trash.addEventListener("click", (e)=> deleteItem(e))
+    let tasks = document.querySelectorAll(".delete")
 
-
-        //add li to ul
-        listItem.appendChild(line)
-    })
-
-    inputTask.value = ""
-}
-populateList()
-
-function addTask(){
-    if (inputTask.value){
-        taskList.push(inputTask.value)
-        populateList()
+    for(index in tasks){
+        tasks[index].onclick = function(){
+            this.parentNode.remove()
+            localStorage.removeItem("key")
+            localStorage.setItem("key", list.innerHTML)
+        }
     }
-
 }
 
-addBtn.addEventListener("click", function(e){
-    e.preventDefault()
-    addTask()
+clear.addEventListener("click", ()=>{
+    list.innerHTML = ""
+    localStorage.removeItem("key")
 })
 
-
-
-
+list.addEventListener("click", (evt)=>{
+    if(evt.target.tagName == "LI"){
+        evt.target.classList.toggle("checked")
+    }
+})
 
 
 let date = new Date()

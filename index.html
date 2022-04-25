@@ -9,25 +9,20 @@
     <link rel="icon" href="img/icon2.png">
 </head>
 <body>
-    <header id="cabecalho">
-      <div id="clear">
-        <i class="fa fa-refresh" id="refresh"></i>
-      </div>
+    <header id="head">
       <h1 id="date"></h1>
-    </header>
-      <div id="container">
-        <form>
-        <input type="text" id="inputTask" placeholder="Add a task..." autocomplete="off">
-        <button type="submit" id="btn" onclick="addTask(this)">
+      <input id="task" placeholder="Add a task">
+        <button id="addTask" class="btn">
           <i class="fas fa-plus"></i>
         </button>
-        </form>
-        <div id="taskConatiner">
-          <ul id="taskItem">
+        <button id="clear" class="btn">
+          <i class="fa fa-refresh" id="refresh"></i>
+        </button>
+    </header>
+       
+    <ul id="list">
 
-          </ul>
-        </div>
-      </div>
+    </ul>
     <script src="scripit.js"></script>
 
     <script src="https://kit.fontawesome.com/5bc262e851.js" crossorigin="anonymous"></script>
