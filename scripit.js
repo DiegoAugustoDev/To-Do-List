@@ -1,5 +1,4 @@
 let task = document.getElementById("task")
-let addTask = document.getElementById("addTask")
 let clear = document.getElementById("clear")
 let list = document.getElementById("list")
 
@@ -8,18 +7,22 @@ onload = function(){
     handleClick();
 }
 
-addTask.addEventListener("click", ()=>{
-    if(task.value.length == 0){
-        alert("Add a task!")
-    }
-    else{
-        list.innerHTML += `<li> ${task.value} <button class="delete"><i class="fa-solid fa-trash-can"></i></i>
-        </button> </li>`
+    $("#addTask").click(()=>{
+        if(task.value == ""){
+            $("#alert").show()
+            $("#ok").click(()=>{
+                $("#alert").hide()
+            })
+        }
+        else{
+            $("#list").append(`<li> ${task.value} 
+            <button class="delete"><i class="fa-solid fa-trash-can"></i></i>
+            </button> </li> `)
+            handleClick()
+        }
+        task.value = ""
+    })
 
-        handleClick()
-    }
-    task.value = ""
-})
 
 function handleClick(){
     localStorage.setItem("key", list.innerHTML);
@@ -36,7 +39,7 @@ function handleClick(){
 }
 
 clear.addEventListener("click", ()=>{
-    list.innerHTML = ""
+    $("#list").empty()
     localStorage.removeItem("key")
 })
 
@@ -50,11 +53,12 @@ list.addEventListener("click", (evt)=>{
 let date = new Date()
 let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 let mouths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-
+let hours = date.getHours();
+let minutes = date.getMinutes();
 
 let exibir = document.getElementById("date")
 
-exibir.innerHTML = days[date.getDay()] + "," + " " + mouths[date.getMonth()] + " " + date.getDate()
+exibir.innerHTML = days[date.getDay()] + "," + " " + mouths[date.getMonth()] + " " + date.getDate() + "/ " + date.getHours() + ":" + date.getMinutes();
 
 function mensage(){
     
